@@ -1,0 +1,30 @@
+npm i becos to installl all the dependencies that are in the package .json so that r app can run 
+
+** shadcn ui== it enables us to build our app by providing us predesigned components which we can copy and paste inside of our project
+because this library is build o ntop off tailwind so we have to install or say config tailwind in our project 
+
+we have usedd carousel , button accordion , drawer ,button , card, radio and many more by command // npx shadcn-ui@latest add accordion...
+
+for dark mode i again used the shadcn dark componetn where i had the theme-provider component and used that in my project components file and all set
+
+**background is made using the grid , and then color is given them using chatgpt
+
+supabase setup - where there will be our databse
+
+then clerk= for the user management , it is a libarary that i have setup to ease up my work 
+
+<SignedOut>
+        <SignInButton />
+      </SignedOut> if user is signed out then then it will take to the signin 
+
+
+      <SignedIn>
+        <UserButton />in this if gthe user is signed in then it will show the userbutton and 
+        for all this we dont need to create anything everything is already presnet out htere
+      </SignedIn>
+
+*** now see user authentication is done throughly no needd t write the code manually
+now it has alll the functoinlaities of delete the user and more and i can even add to it bu changign the items in clerk app
+
+so now we have supabase as our database adn clerk as the user authentication
+and then we connected the clerk with the supabase , using the jwt token
