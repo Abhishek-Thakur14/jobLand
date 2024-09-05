@@ -26,5 +26,19 @@ then clerk= for the user management , it is a libarary that i have setup to ease
 *** now see user authentication is done throughly no needd t write the code manually
 now it has alll the functoinlaities of delete the user and more and i can even add to it bu changign the items in clerk app
 
-so now we have supabase as our database adn clerk as the user authentication
+so now we have supabase as our database adn clerk as the user authentication -done h 
 and then we connected the clerk with the supabase , using the jwt token
+
+i have also taken carousel from the shadcn where i have mapped the images of all the companies that i have mentioned
+and for the autoplay infinitely i took use of one more libaray embla form the shadcn
+
+accordion also from shadcn
+
+user token hmara clerk se ara hoga 
+
+mne sara company ka descriotion , images, logo , role , title sb databse me bhr k rkh dia h , mene supabase me table bnauyi h company job , saved jobs and many more
+
+
+
+
+joblisting , apijob, jobcard
