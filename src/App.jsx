@@ -6,7 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import AppLayout from './layouts/app-layout'
 import LandingPage from './pages/landing'
 import Onboarding from './pages/onboarding'
-import JobListing from './pages/jobListing'
+import JobListing from './pages/job-listing'
 import ProtectedRoute from "./components/protected-route";
 
 import JobPage from './pages/job'
