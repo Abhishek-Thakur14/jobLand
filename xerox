@@ -43,6 +43,7 @@ useEffect is used when there is any component mounting then the things inside th
 
 joblisting , apijob, jobcard
 
+
 ***api wale folder me jake hme sb kuch mil kjyega ,jobs ki api , comapnies and application ,or application m he resume uplad krenge hm supabase.storage.from().upload(fileName,job....) 
 
 zod is a validation library, it checks if the values provided in the form is correct or not
