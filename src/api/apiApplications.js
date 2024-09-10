@@ -1,7 +1,6 @@
 import supabaseClient, { supabaseUrl } from "@/utils/supabase";
 
-// - Apply to job ( candidate )
-export async function applyToJob(token, _, jobData) {
+ export async function applyToJob(token, _, jobData) {
   const supabase = await supabaseClient(token);
 
   const random = Math.floor(Math.random() * 90000);
@@ -55,6 +54,15 @@ export async function getApplications(token, { user_id }) {
   const { data, error } = await supabase
     .from("applications")
     .select("*, job:jobs(title, company:companies(name))")
+     
+//     .select(`
+//   *,
+//   jobs!foreign_key_name (title),
+//   companies!foreign_key_name (name)
+// `)
+.select("*, jobs!applications_job_id_fkey(title, companies(name))") // Use the correct relationship name here
+
+    
     .eq("candidate_id", user_id);
 
   if (error) {
@@ -64,3 +72,4 @@ export async function getApplications(token, { user_id }) {
 
   return data;
 }
+ 
