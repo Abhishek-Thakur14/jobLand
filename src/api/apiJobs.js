@@ -1,12 +1,14 @@
-import supabaseClient from "@/utils/supabase";
+ import supabaseClient from "@/utils/supabase";
 
 // Fetch Jobs
 export async function getJobs(token, { location, company_id, searchQuery }) {
   const supabase = await supabaseClient(token);
   let query = supabase
     .from("jobs")
-    .select("*, saved: saved_jobs(id), company: companies(name,logo_url)");
-
+    // .select("*, saved: saved_jobs(id), company: companies(name,logo_url)");
+    .select(
+      "*, saved: saved_jobs!saved_jobs_job_id_fkey(id), company: companies(name,logo_url)"
+    );
   if (location) {
     query = query.eq("location", location);
   }
@@ -34,7 +36,12 @@ export async function getSavedJobs(token) {
   const supabase = await supabaseClient(token);
   const { data, error } = await supabase
     .from("saved_jobs")
-    .select("*, job: jobs(*, company: companies(name,logo_url))");
+    // .select("*, job: jobs!saved_jobs_job_id_fkey(*, company: companies(name,logo_url))")
+    // .select("*, job: jobs!saved_jobs_job_id_fkey1(*, company: companies(name,logo_url))");
+
+    // .select("*, job: jobs(*, company: companies(name,logo_url))");
+    .select("*, job: jobs!saved_jobs_job_id_fkey(*, company: companies(name,logo_url))");
+
 
   if (error) {
     console.error("Error fetching Saved Jobs:", error);
@@ -49,9 +56,13 @@ export async function getSingleJob(token, { job_id }) {
   const supabase = await supabaseClient(token);
   let query = supabase
     .from("jobs")
-    .select(
-      "*, company: companies(name,logo_url), applications: applications(*)"
-    )
+   
+      // .select(
+      //   "*, company: companies(name, logo_url), applications: applications!applications_job_id_fkey(*)"  // Or use the other constraint if appropriate
+      // )
+      .select(
+        "*, company: companies(name,logo_url), applications: applications!applications_job_id_fkey1(*)"
+      )
     .eq("id", job_id)
     .single();
 
@@ -65,8 +76,7 @@ export async function getSingleJob(token, { job_id }) {
   return data;
 }
 
-// - Add / Remove Saved Job
-export async function saveJob(token, { alreadySaved }, saveData) {
+ export async function saveJob(token, { alreadySaved }, saveData) {
   const supabase = await supabaseClient(token);
 
   if (alreadySaved) {
@@ -98,8 +108,7 @@ export async function saveJob(token, { alreadySaved }, saveData) {
   }
 }
 
-// - job isOpen toggle - (recruiter_id = auth.uid())
-export async function updateHiringStatus(token, { job_id }, isOpen) {
+ export async function updateHiringStatus(token, { job_id }, isOpen) {
   const supabase = await supabaseClient(token);
   const { data, error } = await supabase
     .from("jobs")
@@ -115,8 +124,7 @@ export async function updateHiringStatus(token, { job_id }, isOpen) {
   return data;
 }
 
-// get my created jobs
-export async function getMyJobs(token, { recruiter_id }) {
+ export async function getMyJobs(token, { recruiter_id }) {
   const supabase = await supabaseClient(token);
 
   const { data, error } = await supabase
@@ -166,3 +174,4 @@ export async function addNewJob(token, _, jobData) {
 
   return data;
 }
+ 
