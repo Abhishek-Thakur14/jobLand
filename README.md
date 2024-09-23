@@ -56,6 +56,44 @@ To get a local copy up and running, follow these steps:
 - **For Job Seekers**: Browse jobs, apply directly, and save the ones you like.
 - **For Employers**: Post job listings and manage job applications.
 
-## Note
+## Contributing
 
-Your feedback is invaluable! If you spot any bugs or have suggestions for enhancements, please don't hesitate to contact me at [techpro.neeraj@gmail.com](mailto:techpro.neeraj@gmail.com). Thank you for your support!
+We are actively seeking contributions to improve Jobland, and we welcome developers of all skill levels to help make the platform better!
+
+### Current Issue: Onboarding Component
+
+We have identified an issue with the onboarding process, where users are directly taken to the job posting page without properly distinguishing their role (e.g., job seeker or employer). This is a crucial step that needs fixing, and your help would be appreciated.
+
+### What Needs to Be Done:
+- The onboarding component should correctly route users based on their role type (job seeker or employer) after login/signup.
+- If you can help debug and solve this issue, feel free to contribute by opening a pull request.
+
+### How to Contribute:
+
+1. Fork the repository and clone it to your local machine:
+   ```bash
+   git clone https://github.com/Neeraj-Fulpatiya/jobLand.git
+2. Create a branch for your feature or bug fix:
+   bash
+     git checkout -b fix-onboarding-component
+3. Make your changes, commit them, and push to your forked repository:
+   ```bash
+   git add .
+   git commit -m "Fix onboarding component routing issue"
+   git push origin fix-onboarding-component
+4. Submit a Pull Request to the main repository, explaining your fix and how it resolves the issue.
+
+# Guidelines
+
+- Please ensure your code follows the existing code style.
+- Test your changes thoroughly.
+- Include comments where necessary to make the code understandable.
+- If you're new to open-source, feel free to ask questions. We are here to help!
+
+## Need Help?
+
+If you need further clarification or encounter issues while setting up, feel free to reach out via [techpro.neeraj@gmail.com](mailto:techpro.neeraj@gmail.com).
+   
+
+
+
