@@ -89,6 +89,8 @@ We have identified an issue with the onboarding process, where users are directl
 - Test your changes thoroughly.
 - Include comments where necessary to make the code understandable.
 - If you're new to open-source, feel free to ask questions. We are here to help!
+  
+Awesome Project
 
 ## Need Help? 
 
